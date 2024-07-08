@@ -1,0 +1,75 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Planejamento de Aulas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Planejamento de Aulas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Relatórios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Configurações</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="content">
+                    <h1>Planejamento de Aulas</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="graph">
+                                <canvas id="graph-1"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="table">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Aula</th>
+                                            <th>Data</th>
+                                            <th>Conteúdo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Aula 1</td>
+                                            <td>10/02/2024</td>
+                                            <td>Introdução à História</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aula 2</td>
+                                            <td>12/02/2024</td>
+                                            <td>Desenvolvimento da Civilização</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+  </html>
