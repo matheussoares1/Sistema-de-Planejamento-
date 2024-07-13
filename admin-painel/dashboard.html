@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simples Agenda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add your custom styles here */
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #333;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Header Styles */
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Navigation Styles */
+
+nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+/* Main Content Styles */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+/* Chart Styles */
+
+.chart {
+  width: 100%;
+  height: 300px;
+  margin: 20px;
+}
+
+.chart canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Table Styles */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Pagination Styles */
+
+.pagination {
+  margin: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.pagination a:hover {
+  color: #666;
+}
+
+/* Modal Styles */
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 50%;
+  margin: 40px auto;
+}
+
+.modal-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-header h2 {
+  margin-top: 0;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-footer button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-footer button:hover {
+  background-color: #444;
+}
+
+/* Button Styles */
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <!-- Sidebar content -->
+            </div>
+            <div class="col-md-9 content">
+                <div class="header">
+                    <h1 class="mb-0">Dashboard</h1>
+                    <div class="user">
+                        <img src="https://via.placeholder.com/30" alt="User Image">
+                        <span>Nome Usuário Logado</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Gráficos do Painel</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h5 class="card-title">Quantidade de planejamentos cadastrados por série</h5>
+                            <canvas id="serie-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h5 class="card-title">Quantidade de planejamentos cadastrados</h5>
+                            <canvas id="total-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h5 class="card-title">Competência geral mais utilizada</h5>
+                            <canvas id="competencia-geral-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-title">Quantidade de planejamento que usa cada competência geral</h5>
+                            <canvas id="competencia-geral-pie-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-title">Quantidade de planejamento que usa cada competência específica</h5>
+                            <canvas id="competencia-especifica-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-title">Quantidade de planejamento que usa cada habilidade</h5>
+                            <canvas id="habilidade-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Tabela de Planejamentos</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Série</th>
+                                    <th>Turma</th>
+                                    <th>Data</th>
+                                    <th>Tema</th>
+                                    <th>Objetivos</th>
+                                    <th>Área de Conhecimento</th>
+                                    <th>Disciplina</th>
+                                    <th>Competência Geral</th>
+                                    <th>Competência Específica</th>
+                                    <th>Habilidades</th>
+                                    <th>Objetos de Estudo</th>
+                                    <th>Descrição</th>
+                                    <th>Recursos</th>
+                                    <th>Metodologia de Avaliação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="planejamentos-table">
+                                <!-- Table data will be rendered here -->
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <ul id="pagination">
+                                <!-- Pagination links will be rendered here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" id="filtrar-btn">Filtrar</button>
+                        <button class="btn btn-secondary" id="limpar-filtro-btn">Limpar Filtro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for filtering -->
+    <div class="modal fade" id="filtrar-modal" tabindex="-1" role="dialog" aria-labelledby="filtrar-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filtrar-modal-label">Filtrar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="data-filtro">Data</label>
+                            <input type="date" class="form-control" id="data-filtro" placeholder="__/__/____">
+                        </div>
+                        <div class="form-group">
+                            <label for="competencia-geral-filtro">Competência Geral</label>
+                            <select class="form-control" id="competencia-geral-filtro">
+                                <!-- Options will be rendered here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="competencia-especifica-filtro">Competência Específica</label>
+                            <select class="form-control" id="competencia-especifica-filtro">
+                                <!-- Options will be rendered here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="disciplina-filtro">Disciplina</label>
+                            <select class="form-control" id="disciplina-filtro">
+                                <!-- Options will be rendered here -->
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="aplicar-filtro-btn">Aplicar Filtro</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script>
+       // Gráfico de quantidade de planejamentos cadastrados por série
+const serieChartCanvas = document.getElementById('serie-chart');
+const serieChart = new Chart(serieChartCanvas, {
+  type: 'bar',
+  data: {
+    labels: ['Série 1', 'Série 2', 'Série 3', 'Série 4', 'Série 5'],
+    datasets: [{
+      label: 'Quantidade de planejamentos',
+      data: [10, 20, 30, 40, 50],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Gráfico de quantidade de planejamentos cadastrados
+const totalChartCanvas = document.getElementById('total-chart');
+const totalChart = new Chart(totalChartCanvas, {
+  type: 'line',
+  data: {
+    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+    datasets: [{
+      label: 'Quantidade de planejamentos',
+      data: [100, 120, 140, 160, 180, 200],
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Gráfico de competência geral mais utilizada
+const competenciaGeralChartCanvas = document.getElementById('competencia-geral-chart');
+const competenciaGeralChart = new Chart(competenciaGeralChartCanvas, {
+  type: 'pie',
+  data: {
+    labels: ['Competência Geral 1', 'Competência Geral 2', 'Competência Geral 3'],
+    datasets: [{
+      label: 'Quantidade de planejamentos',
+      data: [30, 20, 50],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top'
+      }
+    }
+  }
+});
+
+// Gráfico de quantidade de planejamento que usa cada competência geral
+const competenciaGeralPieChartCanvas = document.getElementById('competencia-geral-pie-chart');
+const competenciaGeralPieChart = new Chart(competenciaGeralPieChartCanvas, {
+  type: 'pie',
+  data: {
+    labels: ['Competência Geral 1', 'Competência Geral 2', 'Competência Geral 3'],
+    datasets: [{
+      label: 'Quantidade de planejamentos',
+      data: [30, 20, 50],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+ options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top'
+      }
+    }
+  }
+});
+
+// Gráfico de quantidade de planejamento que usa cada competência específica
+const competenciaEspecificaChartCanvas = document.getElementById('competencia-especifica-chart');
+const competenciaEspecificaChart = new Chart(competenciaEspecificaChartCanvas, {
+  type: 'bar',
+  data: {
+    labels: ['Competência Específica 1', 'Competência Específica 2', 'Competência Específica 3'],
+    datasets: [{
+      label: 'Quantidade de planejamentos',
+      data: [20, 30, 40],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Gráfico de quantidade de planejamento que usa cada habilidade
+const habilidadeChartCanvas = document.getElementById('habilidade-chart');
+const habilidadeChart = new Chart(habilidadeChartCanvas, {
+  type: 'bar',
+  data: {
+    labels: ['Habilidade 1', 'Habilidade 2', 'Habilidade 3'],
+    datasets: [{
+      label: 'Quantidade de planejamentos',
+      data: [15, 25, 35],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Render the table data
+const tableBody = document.getElementById('planejamentos-table');
+fetch('/api/planejamentos')
+ .then(response => response.json())
+ .then(data => {
+    data.forEach(planejamento => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${planejamento.id}</td>
+        <td>${planejamento.serie}</td>
+        <td>${planejamento.turma}</td>
+        <td>${planejamento.data}</td>
+        <td>${planejamento.tema}</td>
+        <td>${planejamento.objetivos}</td>
+        <td>${planejamento.area_de_conhecimento}</td>
+        <td>${planejamento.disciplina}</td>
+        <td>${planejamento.competencia_geral}</td>
+        <td>${planejamento.competencia_especifica}</td>
+        <td>${planejamento.habilidades}</td>
+        <td>${planejamento.objetos_de_estudo}</td>
+        <td>${planejamento.descricao}</td>
+        <td>${planejamento.recursos}</td>
+        <td>${planejamento.metodologia_de_avaliacao}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  });
+
+// Add event listeners to the pagination links
+const pagination = document.getElementById('pagination');
+pagination.addEventListener('click', event => {
+  if (event.target.tagName === 'A') {
+    const page = event.target.dataset.page;
+    fetch(`/api/planejamentos?page=${page}`)
+     .then(response => response.json())
+     .then(data => {
+        tableBody.innerHTML = '';
+        data.forEach(planejamento => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${planejamento.id}</td>
+            <td>${planejamento.serie}</td>
+            <td>${planejamento.turma}</td>
+            <td>${planejamento.data}</td>
+            <td>${planejamento.tema}</td>
+            <td>${planejamento.objetivos}</td>
+            <td>${planejamento.area_de_conhecimento}</td>
+            <td>${planejamento.disciplina}</td>
+            <td>${planejamento.competencia_geral}</td>
+            <td>${planejamento.competencia_especifica}</td>
+            <td>${planejamento.habilidades}</td>
+            <td>${planejamento.objetos_de_estudo}</td>
+            <td>${planejamento.descricao}</td>
+            <td>${planejamento.recursos}</td>
+            <td>${planejamento.metodologia_de_avaliacao}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      });
+  }
+});
+
+// Função para abrir o modal de filtro
+function abrirModalFiltro() {
+  const modal = new bootstrap.Modal(document.getElementById('filtrar-modal'));
+  modal.show();
+}
+
+// Função para fechar o modal de filtro
+function fecharModalFiltro() {
+  const modal = bootstrap.Modal.getInstance(document.getElementById('filtrar-modal'));
+  modal.hide();
+}
+
+// Função para aplicar o filtro
+function aplicarFiltro() {
+  const dataFiltro = document.getElementById('data-filtro').value;
+  const competenciaGeralFiltro = document.getElementById('competencia-geral-filtro').value;
+  const competenciaEspecificaFiltro = document.getElementById('competencia-especifica-filtro').value;
+  const disciplinaFiltro = document.getElementById('disciplina-filtro').value;
+
+  let url = '/api/planejamentos';
+
+  if (dataFiltro) {
+    url += `?data=${dataFiltro}`;
+  }
+
+  if (competenciaGeralFiltro) {
+    url += `&competencia_geral=${competenciaGeralFiltro}`;
+  }
+
+  if (competenciaEspecificaFiltro) {
+    url += `&competencia_especifica=${competenciaEspecificaFiltro}`;
+  }
+
+  if (disciplinaFiltro) {
+    url += `&disciplina=${disciplinaFiltro}`;
+  }
+
+  fetch(url)
+   .then(response => response.json())
+   .then(data => {
+      tableBody.innerHTML = '';
+      data.forEach(planejamento => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${planejamento.id}</td>
+          <td>${planejamento.serie}</td>
+          <td>${planejamento.turma}</td>
+          <td>${planejamento.data}</td>
+          <td>${planejamento.tema}</td>
+          <td>${planejamento.objetivos}</td>
+          <td>${planejamento.area_de_conhecimento}</td>
+          <td>${planejamento.disciplina}</td>
+          <td>${planejamento.competencia_geral}</td>
+          <td>${planejamento.competencia_especifica}</td>
+          <td>${planejamento.habilidades}</td>
+          <td>${planejamento.objetos_de_estudo}</td>
+          <td>${planejamento.descricao}</td>
+          <td>${planejamento.recursos}</td>
+          <td>${planejamento.metodologia_de_avaliacao}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    });
+}
+
+// Função para 
