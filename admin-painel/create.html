@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simples Agenda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
 
+.container-fluid {
+padding-top: 20px;
+    widht: 100%;
+}
+
+.sidebar {
+background-color: #fff;
+padding: 20px;
+min-height: 100vh;
+border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+list-style: none;
+padding: 0;
+margin-top: 20px;
+}
+
+.sidebar li {
+margin-bottom: 10px;
+}
+
+.sidebar li a {
+display: block;
+padding: 10px;
+border-radius: 5px;
+text-decoration: none;
+color: #333;
+transition: background-color 0.3s ease;
+}
+
+.sidebar li a:hover {
+background-color: #eee;
+}
+
+.sidebar li i {
+margin-right: 10px;
+}
+
+.content {
+padding: 20px;
+background-color: #fff;
+border-radius: 5px;
+}
+
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.header h1 {
+margin: 0;
+font-size: 24px;
+color: #333;
+}
+
+.header.user {
+display: flex;
+align-items: center;
+}
+
+.header.user img {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+margin-right: 10px;
+}
+
+.header.user span {
+font-weight: bold;
+color: #333;
+}
+
+.form-group label {
+font-weight: bold;
+}
+
+.form-group input,.form-group select {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+margin-bottom: 10px;
+}
+
+.btn {
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+background-color: #007bff;
+color: #fff;
+}
+
+.btn-primary:hover {
+background-color: #0056b3;
+}
+
+.btn-secondary {
+background-color: #6c757d;
+color: #fff;
+}
+
+.btn-secondary:hover {
+background-color: #5a6268;
+}
+
+.btn-success {
+background-color: #28a745;
+color: #fff;
+}
+
+.btn-success:hover {
+background-color: #218838;
+}
+
+.btn-danger {
+background-color: #dc3545;
+color: #fff;
+}
+
+.btn-danger:hover {
+background-color: #c82333;
+}
+
+.btn-warning {
+background-color: #ffc107;
+color: #fff;
+}
+
+.btn-warning:hover {
+background-color: #e0a800;
+}
+
+.btn-info {
+background-color: #17a2b8;
+color: #fff;
+}
+
+.btn-info:hover {
+background-color: #13849d;
+}
+
+.btn-light {
+background-color: #f8f9fa;
+color: #333;
+}
+
+.btn-light:hover {
+background-color: #e2e6ea;
+}
+
+.btn-dark {
+background-color: #343a40;
+color: #fff;
+}
+
+.btn-dark:hover {
+background-color: #212529;
+}
+
+.table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+
+.table th,.table td {
+padding: 10px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+.table th {
+background-color: #f2f2f2;
+}
+
+.tabletbody tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+background-color: #eee;
+}
+
+.pagination {
+display: flex;
+justify-content: center;
+margin-top: 20px;
+}
+
+.pagination li {
+margin: 0 5px;
+}
+
+.pagination a {
+padding: 8px 12px;
+border: 1px solid #ddd;
+border-radius: 5px;
+text-decoration: none;
+color: #333;
+}
+
+.pagination.active a {
+background-color: #007bff;
+color: #fff;
+}
+
+/* Responsividade */
+
+@media (max-width: 1200px) {
+.sidebar {
+width: 250px;
+}
+.content {
+width: calc(100% - 250px);
+}
+}
+
+@media (max-width: 992px) {
+.sidebar {
+width: 200px;
+}
+.content {
+width: calc(100% - 200px);
+}
+}
+
+@media (max-width: 768px) {
+.sidebar {
+width: 100%;
+height: auto;
+border-bottom: 1px solid #ddd;
+}
+.content {
+width: 100%;
+}
+}
+
+@media (max-width: 576px) {
+.header {
+flex-direction: column;
+}
+.header.user {
+margin-top: 10px;
+}
+    }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="header">
+                    <h1><i class="fas fa-calendar-alt"></i> Sistema Professor Zilmar Melo</h1>
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-cash-register"></i> Cadastrar</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Usuários</a></li>
+                    <li><a href="#"><i class="fas fa-user-tie"></i> Profissional</a></li>
+                    <li><a href="#"><i class="fas fa-money-bill-wave"></i> Financeiro</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Exportar</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i> Consulta</a></li>
+                    <li><a href="#"><i class="fas fa-lock"></i> Permissões</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Ajuda</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Administrativo</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 content">
+                <div class="header">
+                    <h1 class="mb-0">Planejamento</h1>
+                    <div class="user">
+                        <img src="https://via.placeholder.com/30" alt="User Image">
+                        <span>Nome Usuário Logado</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="nome">Série</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Selecionar">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="nome">Turma</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Selecionar">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="nome">Data</label>
+                            <input type="date" class="form-control" id="nome" placeholder="__/__/____">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="nome">Tema</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Escreva o Tema">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="cpf">Objetivos</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="Selecione o Objetivo">
+                        </div>
+                    
+                </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="rg">Area de Conhecimento</label>
+                            <input type="text" class="form-control" id="rg" placeholder="Selecione a Área de Conhecimento">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="cnpj">Disciplina</label>
+                            <input type="text" class="form-control" id="cnpj" placeholder="Selecione a Disciplina">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Competência Geral</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Selecione a Competência Geral">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Competência Específica</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Selecione a Competência Específica">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Habilidades</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Selecione as Habilidades">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Objetos de Estudo</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva os Objetos de Estudo">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Descrição</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva a Descrição (Opcional)">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Recursos</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva os Recursos utilizados">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Metodologia de Avaliação</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva a metodologia de estudo a ser utilizada">
+                        </div>
+                    </div>
+                </div>
+                <h2 class="mt-4">Contatos</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="celular">Celular</label>
+                            <input type="tel" class="form-control" id="celular" placeholder="Celular">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="E-mail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-secondary">Cancelar</button>
+                </div>
+                <h2 class="mt-4">Lista de Planejamentos</h2>
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+  </html>
