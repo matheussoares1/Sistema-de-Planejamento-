@@ -302,13 +302,13 @@ margin-top: 10px;
                 <div class="row">
                     
                     <div class="col-md-12">
-                        <div id="piechart_3d" style="width: 50%; height: 10% ;"></div>
+                        <div id="piechart_3d-1" style="width: 50%; height: 10% ;"></div>
                     </div>
                     <div class="col-md-12">
-                        <div id="piechart_3d" style="width: 50%; height: 10% ;"></div>
+                        <div id="piechart_3d-2" style="width: 50%; height: 10% ;"></div>
                     </div>
                     <div class="col-md-12">
-                        <div id="piechart_3d" style="width: 50%; height: 10% ;"></div>
+                        <div id="piechart_3d-3" style="width: 50%; height: 10% ;"></div>
                     </div>
     
                 </div>
@@ -351,7 +351,11 @@ margin-top: 10px;
           is3D: true,
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-1'));
+        chart.draw(data, options);
+          var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-2'));
+        chart.draw(data, options);
+          var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-3'));
         chart.draw(data, options);
       }
     </script>
