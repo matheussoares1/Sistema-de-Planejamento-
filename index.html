@@ -274,23 +274,18 @@ margin-top: 10px;
         <div class="row">
             <div class="col-md-3 sidebar">
                 <div class="header">
-                    <h1><i class="fas fa-calendar-alt"></i> Simples Agenda</h1>
+                    <h1><i class="fas fa-calendar-alt"></i> Sistema Professor Zilmar Melo</h1>
                 </div>
                 <ul>
                     <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
-                    <li><a href="#"><i class="fas fa-cash-register"></i> Caixa</a></li>
-                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#"><i class="fas fa-cash-register"></i> Cadastrar</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Usuários</a></li>
                     <li><a href="#"><i class="fas fa-user-tie"></i> Profissional</a></li>
-                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Produtos e Serviços</a></li>
                     <li><a href="#"><i class="fas fa-money-bill-wave"></i> Financeiro</a></li>
-                    <li><a href="#"><i class="fas fa-chart-bar"></i> Análise</a></li>
-                    <li><a href="#"><i class="fas fa-shopping-basket"></i> Compras</a></li>
-                    <li><a href="#"><i class="fas fa-database"></i> Cadastros Gerais</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Exportar</a></li>
                     <li><a href="#"><i class="fas fa-search"></i> Consulta</a></li>
                     <li><a href="#"><i class="fas fa-lock"></i> Permissões</a></li>
                     <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
-                    <li><a href="#"><i class="fas fa-file-invoice"></i> NFS-e</a></li>
                     <li><a href="#"><i class="fas fa-question-circle"></i> Ajuda</a></li>
                     <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
                     <li><a href="#"><i class="fas fa-user-cog"></i> Administrativo</a></li>
@@ -298,41 +293,77 @@ margin-top: 10px;
             </div>
             <div class="col-md-9 content">
                 <div class="header">
-                    <h1 class="mb-0">Clientes</h1>
+                    <h1 class="mb-0">Planejamento</h1>
                     <div class="user">
                         <img src="https://via.placeholder.com/30" alt="User Image">
-                        <span>Gustavo Puglisi</span>
+                        <span>Nome Usuário Logado</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="nome">Nome</label>
+                            <label for="nome">Tema</label>
                             <input type="text" class="form-control" id="nome" placeholder="Nome do cliente">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="cpf">CPF</label>
+                            <label for="cpf">Objetivos</label>
                             <input type="text" class="form-control" id="cpf" placeholder="CPF">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="rg">RG</label>
+                            <label for="rg">Area de Conhecimento</label>
                             <input type="text" class="form-control" id="rg" placeholder="RG">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="cnpj">CNPJ</label>
+                            <label for="cnpj">Disciplina</label>
                             <input type="text" class="form-control" id="cnpj" placeholder="CNPJ">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="data-nascimento">Data Nascimento</label>
-                            <input type="date" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                            <label for="data-nascimento">Competência Geral</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Competência Específica</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Habilidades</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Objetos de Estudo</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Descrição</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Recursos</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="data-nascimento">Metodologia de Avaliação</label>
+                            <input type="text" class="form-control" id="data-nascimento" placeholder="Data Nascimento">
                         </div>
                     </div>
                 </div>
@@ -406,82 +437,8 @@ margin-top: 10px;
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <button type="submit" class="btn btn-secondary">Cancelar</button>
                 </div>
-                <h2 class="mt-4">Lista de Clientes</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>RG</th>
-                            <th>CNPJ</th>
-                            <th>Data Nascimento</th>
-                            <th>Celular</th>
-                            <th>Telefone</th>
-                            <th>E-mail</th>
-                            <th>CEP</th>
-                            <th>Endereço</th>
-                            <th>Número</th>
-                            <th>Complemento</th>
-                            <th>Bairro</th>
-                            <th>Cidade</th>
-                            <th>Estado</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                <td>Cliente 1</td>
-                            <td>123.456.789-00</td>
-                            <td>12.345.678-9</td>
-                            <td>12.345.678/0001-00</td>
-                            <td>01/01/1990</td>
-                            <td>(11) 1234-5678</td>
-                            <td>(11) 1234-5678</td>
-                            <td>cliente1@email.com</td>
-                            <td>12345-678</td>
-                            <td>Rua dos Clientes, 123</td>
-                            <td>123</td>
-                            <td>Apartamento 101</td>
-                            <td>Bairro dos Clientes</td>
-                            <td>Cidade dos Clientes</td>
-                            <td>Estado dos Clientes</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cliente 2</td>
-                            <td>987.654.321-00</td>
-                            <td>98.765.432-1</td>
-                            <td>98.765.432/0001-00</td>
-                            <td>02/02/1992</td>
-                            <td>(11) 9876-5432</td>
-                            <td>(11) 9876-5432</td>
-                            <td>cliente2@email.com</td>
-                            <td>98765-432</td>
-                            <td>Rua dos Clientes, 456</td>
-                            <td>456</td>
-                            <td>Apartamento 202</td>
-                            <td>Bairro dos Clientes</td>
-                            <td>Cidade dos Clientes</td>
-                            <td>Estado dos Clientes</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="pagination">
-                    <ul>
-                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                    </ul>
-                </div>
+                <h2 class="mt-4">Lista de Planejamentos</h2>
+                
             </div>
         </div>
     </div>
