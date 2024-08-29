@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,270 +8,276 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-background-color: #f4f4f4;
-}
-
-.container-fluid {
-padding-top: 20px;
-    widht: 100%;
-}
-
-.sidebar {
-background-color: #fff;
-padding: 20px;
-min-height: 100vh;
-border-right: 1px solid #ddd;
-}
-
-.sidebar ul {
-list-style: none;
-padding: 0;
-margin-top: 20px;
-}
-
-.sidebar li {
-margin-bottom: 10px;
-}
-
-.sidebar li a {
-display: block;
-padding: 10px;
-border-radius: 5px;
-text-decoration: none;
-color: #333;
-transition: background-color 0.3s ease;
-}
-
-.sidebar li a:hover {
-background-color: #eee;
-}
-
-.sidebar li i {
-margin-right: 10px;
-}
-
-.content {
-padding: 20px;
-background-color: #fff;
-border-radius: 5px;
-}
-
-.header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 20px;
-}
-
-.header h1 {
-margin: 0;
-font-size: 24px;
-color: #333;
-}
-
-.header.user {
-display: flex;
-align-items: center;
-}
-
-.header.user img {
-width: 30px;
-height: 30px;
-border-radius: 50%;
-margin-right: 10px;
-}
-
-.header.user span {
-font-weight: bold;
-color: #333;
-}
-
-.form-group label {
-font-weight: bold;
-}
-
-.form-group input,.form-group select {
-width: 100%;
-padding: 10px;
-border: 1px solid #ddd;
-border-radius: 5px;
-margin-bottom: 10px;
-}
-
-.btn {
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-}
-
-.btn-primary {
-background-color: #007bff;
-color: #fff;
-}
-
-.btn-primary:hover {
-background-color: #0056b3;
-}
-
-.btn-secondary {
-background-color: #6c757d;
-color: #fff;
-}
-
-.btn-secondary:hover {
-background-color: #5a6268;
-}
-
-.btn-success {
-background-color: #28a745;
-color: #fff;
-}
-
-.btn-success:hover {
-background-color: #218838;
-}
-
-.btn-danger {
-background-color: #dc3545;
-color: #fff;
-}
-
-.btn-danger:hover {
-background-color: #c82333;
-}
-
-.btn-warning {
-background-color: #ffc107;
-color: #fff;
-}
-
-.btn-warning:hover {
-background-color: #e0a800;
-}
-
-.btn-info {
-background-color: #17a2b8;
-color: #fff;
-}
-
-.btn-info:hover {
-background-color: #13849d;
-}
-
-.btn-light {
-background-color: #f8f9fa;
-color: #333;
-}
-
-.btn-light:hover {
-background-color: #e2e6ea;
-}
-
-.btn-dark {
-background-color: #343a40;
-color: #fff;
-}
-
-.btn-dark:hover {
-background-color: #212529;
-}
-
-.table {
-width: 100%;
-border-collapse: collapse;
-margin-top: 20px;
-max-width: 100%;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-.table th,.table td {
-padding: 10px;
-text-align: left;
-border-bottom: 1px solid #ddd;
-}
+        .container-fluid {
+            padding-top: 20px;
+            width: 100%;
+        }
 
-.table th {
-background-color: #f2f2f2;
-}
-        
+        .sidebar {
+            background-color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+            border-right: 1px solid #ddd;
+        }
 
-.tabletbody tr:nth-child(even) {
-background-color: #f9f9f9;
-}
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
 
-.table tbody tr:hover {
-background-color: #eee;
-}
+        .sidebar li {
+            margin-bottom: 10px;
+        }
 
-.pagination {
-display: flex;
-justify-content: center;
-margin-top: 20px;
-}
+        .sidebar li a {
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
 
-.pagination li {
-margin: 0 5px;
-}
+        .sidebar li a:hover {
+            background-color: #eee;
+        }
 
-.pagination a {
-padding: 8px 12px;
-border: 1px solid #ddd;
-border-radius: 5px;
-text-decoration: none;
-color: #333;
-}
+        .sidebar li i {
+            margin-right: 10px;
+        }
 
-.pagination.active a {
-background-color: #007bff;
-color: #fff;
-}
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
 
-/* Responsividade */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-@media (max-width: 1200px) {
-.sidebar {
-width: 250px;
-}
-.content {
-width: calc(100% - 250px);
-}
-}
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
 
-@media (max-width: 992px) {
-.sidebar {
-width: 200px;
-}
-.content {
-width: calc(100% - 200px);
-}
-}
+        .header .user {
+            display: flex;
+            align-items: center;
+        }
 
-@media (max-width: 768px) {
-.sidebar {
-width: 100%;
-height: auto;
-border-bottom: 1px solid #ddd;
-}
-.content {
-width: 100%;
-}
-}
+        .header .user img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
 
-@media (max-width: 576px) {
-.header {
-flex-direction: column;
-}
-.header.user {
-margin-top: 10px;
-}
-    }
+        .header .user span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .btn-info:hover {
+            background-color: #13849d;
+        }
+
+        .btn-light {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .btn-light:hover {
+            background-color: #e2e6ea;
+        }
+
+        .btn-dark {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .btn-dark:hover {
+            background-color: #212529;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            max-width: 100%;
+        }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:hover {
+            background-color: #eee;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+        .pagination a {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .pagination .active a {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Responsividade */
+
+        @media (max-width: 1200px) {
+            .sidebar {
+                width: 250px;
+            }
+
+            .content {
+                width: calc(100% - 250px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .content {
+                width: calc(100% - 200px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header {
+                flex-direction: column;
+            }
+
+            .header .user {
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -301,6 +308,13 @@ margin-top: 10px;
                         <span>Nome Usuário Logado</span>
                     </div>
                 </div>
+                <div class="header">
+                    <h1 class="mb-0">Planejamento</h1>
+                    <div class="user">
+                        <img src="https://via.placeholder.com/30" alt="User Image">
+                        <span>Nome Usuário Logado</span>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
@@ -320,7 +334,7 @@ margin-top: 10px;
                             <input type="date" class="form-control" id="nome" placeholder="__/__/____">
                         </div>
                     </div>
-                    
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="nome">Tema</label>
@@ -332,12 +346,13 @@ margin-top: 10px;
                             <label for="cpf">Objetivos</label>
                             <input type="text" class="form-control" id="cpf" placeholder="Selecione o Objetivo">
                         </div>
-                    
-                </div>
+
+                    </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="rg">Area de Conhecimento</label>
-                            <input type="text" class="form-control" id="rg" placeholder="Selecione a Área de Conhecimento">
+                            <input type="text" class="form-control" id="rg"
+                                placeholder="Selecione a Área de Conhecimento">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -349,43 +364,50 @@ margin-top: 10px;
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Competência Geral</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Selecione a Competência Geral">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Selecione a Competência Geral">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Competência Específica</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Selecione a Competência Específica">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Selecione a Competência Específica">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Habilidades</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Selecione as Habilidades">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Selecione as Habilidades">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Objetos de Estudo</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva os Objetos de Estudo">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Escreva os Objetos de Estudo">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Descrição</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva a Descrição (Opcional)">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Escreva a Descrição (Opcional)">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Recursos</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva os Recursos utilizados">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Escreva os Recursos utilizados">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="data-nascimento">Metodologia de Avaliação</label>
-                            <input type="text" class="form-control" id="data-nascimento" placeholder="Escreva a metodologia de estudo a ser utilizada">
+                            <input type="text" class="form-control" id="data-nascimento"
+                                placeholder="Escreva a metodologia de estudo a ser utilizada">
                         </div>
                     </div>
                 </div>
@@ -410,90 +432,78 @@ margin-top: 10px;
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                    <button type="submit" class="btn btn-secondary">Cancelar</button>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-block">Adicionar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-secondary btn-block">Excluir</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-success btn-block">Salvar</button>
+                    </div>
                 </div>
-                <h2 class="mt-4">Lista de Planejamentos</h2>
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Série</th>
+                                <th scope="col">Turma</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Tema</th>
+                                <th scope="col">Objetivos</th>
+                                <th scope="col">Área de Conhecimento</th>
+                                <th scope="col">Disciplina</th>
+                                <th scope="col">Competência Geral</th>
+                                <th scope="col">Competência Específica</th>
+                                <th scope="col">Habilidades</th>
+                                <th scope="col">Objetos de Estudo</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Recursos</th>
+                                <th scope="col">Metodologia de Avaliação</th>
+                                <th scope="col"><a>Editar</a></th>
+                                <th scope="col"><a>Excluir</a></th>
+                                <th scope="col"><a>Imprimir</a></th>
 
-        
-    <div class="table-responsive">
-        <table class="table table-sm">
-            <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>RG</th>
-                            <th>CNPJ</th>
-                            <th>Data Nascimento</th>
-                            <th>Celular</th>
-                            <th>Telefone</th>
-                            <th>E-mail</th>
-                            <th>CEP</th>
-                            <th>Endereço</th>
-                            <th>Número</th>
-                            <th>Complemento</th>
-                            <th>Bairro</th>
-                            <th>Cidade</th>
-                            <th>Estado</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                <td>Cliente 1</td>
-                            <td>123.456.789-00</td>
-                            <td>12.345.678-9</td>
-                            <td>12.345.678/0001-00</td>
-                            <td>01/01/1990</td>
-                            <td>(11) 1234-5678</td>
-                            <td>(11) 1234-5678</td>
-                            <td>cliente1@email.com</td>
-                            <td>12345-678</td>
-                            <td>Rua dos Clientes, 123</td>
-                            <td>123</td>
-                            <td>Apartamento 101</td>
-                            <td>Bairro dos Clientes</td>
-                            <td>Cidade dos Clientes</td>
-                            <td>Estado dos Clientes</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cliente 2</td>
-                            <td>987.654.321-00</td>
-                            <td>98.765.432-1</td>
-                            <td>98.765.432/0001-00</td>
-                            <td>02/02/1992</td>
-                            <td>(11) 9876-5432</td>
-                            <td>(11) 9876-5432</td>
-                            <td>cliente2@email.com</td>
-                            <td>98765-432</td>
-                            <td>Rua dos Clientes, 456</td>
-                            <td>456</td>
-                            <td>Apartamento 202</td>
-                            <td>Bairro dos Clientes</td>
-                            <td>Cidade dos Clientes</td>
-                            <td>Estado dos Clientes</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>
-                        </tr>
-                    </tbody>
-        </table>
-    </div>
-    
-            </div>
-                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>7º Ano</td>
+                                <td>A</td>
+                                <td>01/01/2022</td>
+                                <td>Introdução à Matemática</td>
+                                <td><a href=""></i></a></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- Mais linhas podem ser adicionadas aqui -->
+                        </tbody>
+                    </table>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
 </body>
-  </html>
+
+</html>
